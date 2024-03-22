@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的简洁网页</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #eaeaea;
+    color: #333;
+  }
+  .header {
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  .header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .header nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .header nav a:hover {
+    color: #4a69bd;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+  .sidebar {
+    width: 200px;
+    position: fixed;
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: width 0.3s;
+  }
+  .sidebar h2 {
+    color: #ffffff;
+    transition: opacity 0.3s;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    transition: opacity 0.3s;
+  }
+  .sidebar ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+  }
+  .sidebar ul li a:hover {
+    background-color: #575757;
+  }
+  .sidebar ul li ul {
+    padding-left: 20px;
+  }
+  .sidebar ul li ul li a {
+    color: #bbbbbb;
+  }
+  .sidebar-collapsed {
+    width: 50px;
+  }
+  .sidebar-collapsed .sidebar-content {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .toggle-sidebar {
+    position: absolute;
+    top: 10px;
+    right: -50px;
+    width: 50px;
+    height: 40px;
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+  }
+  .content {
+    margin-left: 220px;
+    padding: 40px;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding-top: 60px;
+    transition: margin-left 0.3s;
+  }
+  .content-collapsed {
+    margin-left: 50px;
+  }
+  .poem {
+    white-space: pre-wrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-left: 3px solid #4a69bd;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <nav>
+    <a href="#">主页</a>
+    <a href="#">产品</a>
+    <a href="#">服务</a>
+    <a href="#">关于我们</a>
+    <a href="#">联系方式</a>
+  </nav>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="toggle-sidebar" onclick="toggleSidebar()">≡</div>
+  <div class="sidebar-content">
+    <h2>导航菜单</h2>
+    <ul>
+      <li><a href="#">首页</a>
+        <ul>
+          <li><a href="#">子页面1</a></li>
+          <li><a href="#">子页面2</a></li>
+        </ul>
+      </li>
+      <li><a href="#">关于我们</a></li>
+      <li><a href="#">服务</a></li>
+      <li><a href="#">联系方式</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <h2>静谧的黎明</h2>
+  <div class="poem">
+    清晨的微光，透过窗棂，
+    洒在键盘上，轻轻地，
+    一行行代码，如诗篇般流淌，
+    在数字的海洋，寻找归宿。
+
+    静谧的黎明，唤醒梦想，
+    指尖跳跃，编织未来的篇章，
+    每个字符，都承载着希望，
+    在这个简洁的网页，诉说着故事。
+
+    让每个访问者，在这里停留，
+    感受到温暖，感受到灵魂的交流，
+    不只是代码，更是一场美丽的邂逅，
+    在这个简洁的网页，开启新的旅程。
+  </div>
+</div>
+
+<script>
+  function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var content = document.getElementById('content');
+    sidebar.classList.toggle('sidebar-collapsed');
+    content.classList.toggle('content-collapsed');
+  }
+</script>
+
+</body>
+</html>
